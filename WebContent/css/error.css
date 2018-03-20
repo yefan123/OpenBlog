@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+
+*{
+    margin: 0;
+    padding:0;
+}
+
+body {
+    font-family: 'Courgette', cursive, '幼圆';
+    background: #eee;
+    text-align: center;
+    font-size: 20px;
+}
+
+#back{
+    color: rgb(228, 146, 162);
+    position:absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#index {
+    color: white;
+    background: #8F8E8C;
+    text-decoration: none;
+    padding: 7px 120px;
+    font-size: 13px;
+    font-family: arial, serif;
+    font-weight: bold;
+    border-radius: 3em;
+}
+
+#footer {
+    color: #8F8E8C;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

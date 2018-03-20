@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+#author_info{
+	width:40%;
+	margin:0 30%;
+	border-radius:50%;
+	background:rgba(255,255,255,0.3);
+	padding:7%;
+}
+
+body{
+    font-family: "楷体", cursive, FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+
+#title_bar{
+	position: fixed;
+    width: 100%;
+    left: 0;
+}

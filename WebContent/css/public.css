@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+@media (max-width: 991px) {
+    #main {
+        width: 100%;
+    }
+}
+
+/*991px到1600px之间的由bootstrap来 自适应*/
+
+@media (min-width: 1601px) {
+    #main {
+        width: 85%;
+    }
+}
+
+#admin {
+    text-align: center;
+    position: fixed;
+    z-index: 3;
+    width: 20%;
+    height: 25%;
+    top: -24%;
+    left: 40%;
+    background: black;
+    /*border-bottom-right-radius: 70%;*/
+}
+
+#admin:hover{
+    top: 0;
+}
+
+#right_bar:hover {
+    right: 0%;
+}
+
+#right_bar {
+    text-align: center;
+    position: fixed;
+    background: rgba(252, 252, 252, 0.9);
+    width: 15%;
+    height: 40%;
+    right: -14%;
+    z-index: 1;
+    top: 30%;
+    border-radius: 1px;
+}
+
+#right_bar table {
+    height: 100%;
+}
+
+table td {
+    vertical-align: middle !important;
+}
+
+.skew {
+    display: inline-block;
+    background: black;
+    padding: 2% 4%;
+    transform: skew(-20deg);
+    -ms-transform: skew(-20deg); /* IE 9 */
+    -moz-transform: skew(-20deg); /* Firefox */
+    -webkit-transform: skew(-20deg); /* Safari 和 Chrome */
+    -o-transform: skew(-20deg); /* Opera */
+}
+
+body {
+    background: url('../img/background.jpg') fixed center center;
+    background-size: 100% 100%;
+    font-family: "幼圆", "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.c_center {
+    text-align: center;
+}
+
+.c_left {
+    text-align: left;
+}
+
+.c_right {
+    text-align: right;
+}
+
+.l_div {
+    float: left;
+}
+
+.r_div {
+    float: right;
+}
+
+.head_line {
+    border-bottom: 1px solid #177cb0;
+}
+
+.foot_line {
+    border-top: 1px solid #C0C0C0;
+    margin-bottom: 20px;
+}
+
+#content {
+    text-align: center;
+    clear: both;
+}
+
+#footer {
+
+}
+
+/*以下是回到顶部*/
+.box {
+    display: block;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    background: black;
+    border-radius: 20%;
+}
+
+.top_str {
+    margin-top: 15px;
+    display: none;
+    color: peru;
+    font-weight: bold;
+}
+
+.box:hover .top_arrow {
+    display: none;
+}
+
+.box:hover .top_str {
+    display: block;
+}
+
+.top_arrow {
+    color: white;
+    margin-top: 9px;
+    font-size: 32px;
+    display: block;
+}

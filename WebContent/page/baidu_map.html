@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "幼圆";
+        }
+    </style>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=cj9d5Upc89UGj4acwPgYYofwNgA9kdqR"></script>
+    <title>坐标</title>
+
+
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+<script type="text/javascript">
+    //官网http://lbsyun.baidu.com/jsdemo.htm#a1_2
+    //window.onload?
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    var point = new BMap.Point(118.726, 32.209);		//创建坐标
+    map.centerAndZoom(point, 15);  // 初始化地图,设置中心点坐标和地图级别
+    var marker = new BMap.Marker(point);  // 创建覆盖物
+    map.addOverlay(marker);     // 将覆盖物添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //覆盖物跳动的动画
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes: [
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]
+    }));
+    map.setCurrentCity("南京");
+    map.enableScrollWheelZoom(true);    //开启鼠标滚轮缩放
+</script>
+</html>

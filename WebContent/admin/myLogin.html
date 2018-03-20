@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>(秘密登录入口)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="/Blog/css/login.css"/>
+</head>
+<body>
+<div class="container" id="main">
+
+    <form class="form-signin" id="form" action="/Blog/LoginServlet" method="post" name="login">
+        <a href="/Blog/index.html"><h2 class="form-signin-heading">OpenIdea</h2></a>
+        <label for="input" class="sr-only">管理员</label>
+        <input type="text" id="input" class="form-control" placeholder="用户名" name="username" required>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="密码" name="password" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">登录</button>
+
+        <a href="/Blog/index.html">访客登录</a>
+    </form>
+
+</div>
+
+<div id="footer">
+        <a href="https://github.com/JinHengyu"><img src="/Blog/img/github.png" width="20px" height="20px"
+                                                    class="img-circle">&nbsp;GitHub</a>
+        &nbsp;|
+        <a href="http://www.openidea.xin:8080/Blog/page/about.html">&nbsp;JimJin</a>
+</div>
+
+
+<script>
+    document.onkeydown=function (e) {
+        if (e.keyCode==13){
+            document.forms['login'].submit.click();
+        }
+    }
+</script>
+
+</body>
+</html>
