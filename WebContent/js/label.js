@@ -1,3 +1,6 @@
+let device = window.innerWidth < window.innerHeight ? "phone" : "laptop";
+
+
 window.onresize = function () {
     let list = document.querySelectorAll('.label_container');
     if (document.querySelector('#right_content').clientWidth < 660) {
@@ -9,10 +12,10 @@ window.onresize = function () {
             i.style.width = '20%';
         }
     }
-}
+};
 
 function getXHR() {
-    var xmlhttp;
+    let xmlhttp;
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     } else {
@@ -23,13 +26,13 @@ function getXHR() {
 
 
 function refresh() {
-    var url = "/Blog/AdminAjaxServlet?op=refresh";
-    var xmlhttp = getXHR();
+    let url = "/Blog/AdminAjaxServlet?op=refresh";
+    let xmlhttp = getXHR();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             window.location.reload();
         }
-    }
+    };
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
 }
@@ -40,33 +43,32 @@ function add_tag() {
     if (tagName == '') {
         alert("标签名不能为空!");
     } else {
-        var url = "/Blog/AdminAjaxServlet?op=add_tag&&tagName=" + tagName;
-        var xmlhttp = getXHR();
+        let url = "/Blog/AdminAjaxServlet?op=add_tag&&tagName=" + tagName;
+        let xmlhttp = getXHR();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 alert("success");
             }
-        }
+        };
         xmlhttp.open("POST", url, true);
         xmlhttp.send();
     }
 }
 
 function delet_tag(id) {
-
-    let key = confirm("确认删除标签?");
-    if (key == false) {
+    // let key = confirm("确认删除标签?");
+    if (!confirm("确认删除标签?")) {
         return;
     }
 
-    var url = "/Blog/AdminAjaxServlet?op=tag_delete&&tagId=" + id;
+    let url = "/Blog/AdminAjaxServlet?op=tag_delete&&tagId=" + id;
     // 获取ajax
-    var xmlhttp = getXHR();
+    let xmlhttp = getXHR();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             alert("success");
         }
-    }
+    };
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
 }

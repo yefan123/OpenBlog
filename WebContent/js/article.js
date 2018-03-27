@@ -1,3 +1,6 @@
+let device = window.innerWidth < window.innerHeight ? "phone" : "laptop";
+
+
 window.onload = function () {
     //生成版权声明
     let copyright = document.createElement("h5");

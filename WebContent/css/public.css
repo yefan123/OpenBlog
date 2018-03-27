@@ -13,6 +13,11 @@
     }
 }
 
+*{
+    padding: 0;
+    margin: 0;
+}
+
 #admin {
     text-align: center;
     position: fixed;
@@ -30,7 +35,7 @@
 }
 
 #right_bar:hover {
-    right: 0%;
+    right: 0;
 }
 
 #right_bar {

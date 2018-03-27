@@ -15,8 +15,6 @@
     <link type="text/css" rel="stylesheet" href="/Blog/css/public.css"/>
     <link type="text/css" rel="stylesheet" href="/Blog/css/history.css"/>
 
-    <script src="./js/history.js"></script>
-
 </head>
 <body>
 
@@ -39,7 +37,7 @@
             </div>
 
             <div class="c_center" id="person_info">
-                <h1>Version @22.7</h1>
+                <h1>Version @23.1</h1>
                 <h5 class="text-muted">Thx for Ur time !</h5>
                 <br>
             </div>
@@ -51,7 +49,7 @@
                             &nbsp;&nbsp;首 页</a></td>
                     </tr>
                     <tr>
-                        <td><a href="/Blog/ArticleServlet?id=0#article"><span class="glyphicon glyphicon-film"></span>
+                        <td><a href="/Blog/MainServlet?device=phone"><span class="glyphicon glyphicon-film"></span>
                             &nbsp;&nbsp;文 章</a></td>
                     </tr>
                     <tr>
@@ -94,6 +92,10 @@
     <div class="top_arrow glyphicon glyphicon-menu-up"></div>
     <div class="top_str">TOP</div>
 </a>
+
+<%--js放下面,加快渲染,同时节省window.onload--%>
+<script src="./js/history.js"></script>
+
 
 </body>
 </html>

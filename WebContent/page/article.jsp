@@ -14,7 +14,6 @@
     <link type="text/css" rel="stylesheet" href="./css/public.css"/>
     <link type="text/css" rel="stylesheet" href="./css/article.css"/>
     <!-- 再次注意,所有的jsp都是通过servlet转发的,对browser都是根目录 -->
-    <script src="./js/article.js"></script>
 
 </head>
 <body>
@@ -38,10 +37,14 @@
     </div>
 </c:if>
 
+<%--手机不需要这些..--%>
+<% if (request.getParameter("device").equals("laptop")) { %>
+
+
 <!-- 左侧文章列表 -->
 <div id="left_bar">
     <c:forEach var="a" items="${visit_rank}">
-        <a href="/Blog/ArticleServlet?id=${a.id}" class="list-group-item item">
+        <a href="javascript:location.href='/Blog/ArticleServlet?id=${a.id}&device=laptop'" class="list-group-item item">
             <span class="item_title">${a.title}</span><br>
             <span class="glyphicon glyphicon-option-horizontal"> </span>
             <span class="item_time">${a.time}</span>
@@ -74,6 +77,8 @@
         </tr>
     </table>
 </div>
+
+<% } %>
 
 
 <!-- 打赏的遮罩层 -->
@@ -158,7 +163,7 @@
 
             <c:choose>
                 <c:when test="${article_pre!=null}">
-                    <a href="/Blog/ArticleServlet?id=${article_pre.id}">&nbsp;上一篇:${article_pre.title}</a>
+                    <a href="javascript:location.href='/Blog/ArticleServlet?id=${article_pre.id}&device='+device">&nbsp;上一篇:${article_pre.title}</a>
                 </c:when>
                 <c:otherwise>
                     没有更早的文章啦
@@ -171,7 +176,7 @@
 
             <c:choose>
                 <c:when test="${article_next!=null}">
-                    <a href="/Blog/ArticleServlet?id=${article_next.id}">下一篇:&nbsp;${article_next.title}</a>
+                    <a href="javascript:location.href='/Blog/ArticleServlet?id=${article_next.id}&device='+device">下一篇:&nbsp;${article_next.title}</a>
                 </c:when>
                 <c:otherwise>
                     这是最后一篇啦
@@ -254,7 +259,7 @@
 <br><br>
 <div id="footer">
     <a href="/Blog/index.html">OpenIdea首页&nbsp;&nbsp;</a>|
-    <a href="/Blog/MainServlet?list=small">&nbsp;&nbsp;博文列表</a>
+    <a href="/Blog/MainServlet?device=phone">&nbsp;&nbsp;博文列表</a>
 </div>
 <br><br><br>
 
@@ -263,6 +268,9 @@
     <div class="top_arrow glyphicon glyphicon-menu-up"></div>
     <div class="top_str">TOP</div>
 </a>
+
+<script src="./js/article.js"></script>
+
 
 </body>
 </html>

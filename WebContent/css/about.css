@@ -17,3 +17,7 @@ body{
     width: 100%;
     left: 0;
 }
+
+#social-media a{
+	margin: 0 5px;
+}

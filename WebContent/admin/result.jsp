@@ -61,12 +61,12 @@
             <c:when test="${comment==null}">
                 <h1 class="glyphicon glyphicon-remove" style="color:gray"></h1>
                 <h4>错误:${comment_info}</h4>
-                <h3><a href="/Blog/ArticleServlet?id=${postId}">返回文章 (<span id="timer"></span>)</a></h3>
+                <h3><a href="javascript:history.back()">返回文章 (<span id="timer"></span>)</a></h3>
             </c:when>
             <c:otherwise>
                 <h1 class="glyphicon glyphicon-ok" style="color:lime"></h1>
                 <h4>评论成功!</h4>
-                <h3><a href="/Blog/ArticleServlet?id=${postId}">返回文章 (<span id="timer"></span>)</a></h3>
+                <h3><a href="javascript:history.back()">返回文章 (<span id="timer"></span>)</a></h3>
             </c:otherwise>
         </c:choose>
 
@@ -78,7 +78,8 @@
             }
         </script>
 
-        <% } else { } %>
+        <% } else {
+        } %>
 
     </div>
     <br><br>

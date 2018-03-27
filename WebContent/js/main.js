@@ -1,29 +1,9 @@
-window.onload = function () {
-    document.querySelector('#prevPage').onmouseover = function () {
-        this.innerHTML = "PREV";
-        this.style.color = "peru";
-    }
-    document.querySelector('#prevPage').onmouseout = function () {
-        this.innerHTML = "上一页";
-        this.style.color = "white";
-    }
-    document.querySelector('#nextPage').onmouseover = function () {
-        this.innerHTML = "NEXT";
-        this.style.color = "peru";
-    }
-    document.querySelector('#nextPage').onmouseout = function () {
-        this.innerHTML = "下一页";
-        this.style.color = "white";
-    }
-}
-
-
-/* 
+/*
 * 获取ajax处理对象		
  * @returns {xmlhttp}
  */
 function getXHR() {
-    var xmlhttp;
+    let xmlhttp;
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     } else {
@@ -38,9 +18,9 @@ function getXHR() {
  * @param page
  */
 function smallList(page) {
-    var url = "/Blog/ArticleAjaxServlet?page=" + page;
+    let url = "/Blog/ArticleAjaxServlet?page=" + page;
     // 获取ajax
-    var xmlhttp = getXHR();
+    let xmlhttp = getXHR();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
@@ -67,34 +47,37 @@ function smallList(page) {
                 item.innerHTML = "";
 
                 time.innerHTML = jo[index].time + "&nbsp;&nbsp;";
-                title.innerHTML = "• <a  href='/Blog/ArticleServlet?id=" + jo[index].id + "'>" + jo[index].title + "</a>";
+                title.innerHTML = `• <a href='javascript:void(0)' onclick="location.href='/Blog/ArticleServlet?id=${jo[index].id}&device=${device}'">${jo[index].title}</a>`;
+                // title.innerHTML = "• <a href='/Blog/ArticleServlet?id=" + jo[index].id + "'>" + jo[index].title + "</a>";
                 item.appendChild(time);
                 item.appendChild(title);
-
                 list.appendChild(item);
 
+                let prev=document.querySelector('#prevPage');
+                let next=document.querySelector('#nextPage');
+
                 if (page <= 1) {
-                    document.querySelector('#prevPage').style.display = 'none';
-                    document.querySelector('#nextPage').style.display = 'inline';
+                    prev.style.display = 'none';
+                    next.style.display = 'inline';
                 } else if (page >= Math.ceil(article_number / arti_page_num)) {
-                    document.querySelector('#nextPage').style.display = 'none';
-                    document.querySelector('#prevPage').style.display = 'inline';
+                    prev.style.display = 'inline';
+                    next.style.display = 'none';
                 } else {
-                    document.querySelector('#prevPage').style.display = 'inline';
-                    document.querySelector('#nextPage').style.display = 'inline';
+                    prev.style.display = 'inline';
+                    next.style.display = 'inline';
                 }
 
-                document.querySelector('#list-bar span#bar-word').innerHTML = '第 ' + page + ' 页';
+                document.querySelector('#list-bar span#bar-word').innerHTML = `第 ${page} 页`;
                 document.querySelector('#list-bar').onclick = function () {
-                    window.location.href = "/Blog/MainServlet?list=big";
-                }
+                    window.location.href = "/Blog/MainServlet?device=laptop";
+                };
 
                 document.querySelector('#hidden-word').innerHTML = "&gt;&gt;&gt;点击查看摘要&lt;&lt;&lt;";
 
             }
 
         }
-    }
+    };
     //GET无效...
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
@@ -121,29 +104,29 @@ function nextPage() {
 
 
 function logout() {
-    var url = "/Blog/LogoutAjaxServlet";
+    let url = "/Blog/LogoutAjaxServlet";
     // 获取ajax
-    var xmlhttp = getXHR();
+    let xmlhttp = getXHR();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             let res = xmlhttp.responseText;
             alert("注销成功,此时session的user属性值为" + res);
             window.location.reload();
         }
-    }
+    };
     //GET无效...
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
 }
 
 function refresh() {
-    var url = "/Blog/AdminAjaxServlet?op=refresh";
-    var xmlhttp = getXHR();
+    let url = "/Blog/AdminAjaxServlet?op=refresh";
+    let xmlhttp = getXHR();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             window.location.reload();
         }
-    }
+    };
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
 }

@@ -1,19 +1,19 @@
 package blog.servlet;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import blog.dao.ArticleDao;
+import blog.db.VisitorDB;
+import blog.service.ArticleService;
+import blog.service.TagService;
+import blog.utils.DateUtils;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import blog.dao.ArticleDao;
-import blog.db.VisitorDB;
-import blog.service.ArticleService;
-import blog.service.TagService;
-import blog.utils.DateUtils;
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -27,14 +27,6 @@ public class MainServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private static ServletContext application = null;
-
-    @Override
-    public void init() throws ServletException {
-        // TODO Auto-generated method stub
-        // 获取application对象
-        application = this.getServletContext();
-        refreshApplication();
-    }
 
     /**
      * 更新application属性
@@ -57,7 +49,7 @@ public class MainServlet extends HttpServlet {
         // 历史版本数量-->动态转静态
         //HistoryService hs = HistoryService.getInstance();
         //application.setAttribute("versions_num", hs.getVersionsCount());
-        application.setAttribute("versions_num", 75);
+        application.setAttribute("versions_num", 76);
 
         TagService ts = TagService.getInstance();
         // 标签数量
@@ -71,6 +63,13 @@ public class MainServlet extends HttpServlet {
         return true;
     }
 
+    @Override
+    public void init() throws ServletException {
+        // TODO Auto-generated method stub
+        // 获取application对象
+        application = this.getServletContext();
+        refreshApplication();
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,11 +79,6 @@ public class MainServlet extends HttpServlet {
 //        }
 
         ArticleService as = ArticleService.getInstance();
-        request.setAttribute("ArticleService", as);
-
-        // 初始化文章列表
-        // request.setAttribute("article_list", as.getArticle());
-        // //放到fileList_inclu.jsp中了
 
 
         // 初始化用户已读列表
@@ -92,12 +86,15 @@ public class MainServlet extends HttpServlet {
             request.getSession().setAttribute("readList", new ArrayList<Integer>());
         }
 
-        // 转发到 博客主页 界面
-        if (request.getParameter("list").equals("small")) {
-            request.getRequestDispatcher("/page/main.jsp?list=small").forward(request, response);
+
+        if (request.getParameter("device").equals("laptop")) {
+            request.setAttribute("article_list", as.getArticle(6));
         } else {
-            request.getRequestDispatcher("/page/main.jsp?list=big").forward(request, response);
+            //do nothing
         }
+
+        request.getRequestDispatcher("/page/main.jsp").forward(request, response);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -1,4 +1,42 @@
 @CHARSET "UTF-8";
+
+@media (max-width: 1250px) {
+
+}
+
+/*laptop*/
+@media (min-width: 1251px) {
+    #list li:hover {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .digest:hover #readAll {
+        visibility: visible;
+    }
+
+    .digest:hover {
+        border: 1px solid black;
+    }
+
+    #list-bar:hover #hidden-word {
+        display: inline-block;
+    }
+
+    #list-bar:hover #bar-word {
+        display: none;
+    }
+
+    #prevPage:hover:before {
+        content: 'PREV';
+        color: peru;
+    }
+
+    #nextPage:hover:before {
+        content: 'NEXT';
+        color: peru;
+    }
+}
+
 ul {
     padding: 0;
 }
@@ -9,10 +47,6 @@ ul {
     list-style: none;
     margin: 2px;
     padding: 12px;
-}
-
-#list li:hover {
-    background: rgba(255, 255, 255, 0.8);
 }
 
 #list:before, #list:after {
@@ -42,28 +76,12 @@ ul {
     padding: 3.5%;
     overflow: hidden;
     background: white;
-    margin: 1px 0px;
+    margin: 1px 0;
     border: 1px solid white;
 }
 
 #readAll {
     visibility: hidden;
-}
-
-.digest:hover #readAll {
-    visibility: visible;
-}
-
-.digest:hover {
-    border: 1px solid black;
-}
-
-#list-bar:hover #hidden-word {
-    display: inline-block;
-}
-
-#list-bar:hover #bar-word {
-    display: none;
 }
 
 #hidden-word {
@@ -72,13 +90,14 @@ ul {
     font-weight: bold;
 }
 
-#prevPage {
-    float: left;
+#prevPage:before {
+    content: '上一页';
 }
 
-#nextPage {
-    float: right;
+#nextPage:before {
+    content: '下一页';
 }
+
 
 #prevPage, #nextPage {
     width: 20%;
@@ -92,6 +111,7 @@ ul {
 }
 
 #list-bar {
+    padding: 0;
     text-align: center;
     cursor: pointer;
 }
@@ -102,7 +122,7 @@ ul {
 
 .small-title {
     text-align: left;
-    margin: 3px 0px;
+    margin: 3px 0;
 }
 
 .nth {

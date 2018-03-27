@@ -16,7 +16,6 @@
     <link type="text/css" rel="stylesheet" href="/Blog/css/public.css"/>
     <link type="text/css" rel="stylesheet" href="/Blog/css/tags.css"/>
 
-    <script src="/Blog/js/label.js"></script>
 </head>
 <body>
 
@@ -77,7 +76,7 @@
                             &nbsp;&nbsp;首 页</a></td>
                     </tr>
                     <tr>
-                        <td><a href="/Blog/ArticleServlet?id=0#article"><span class="glyphicon glyphicon-film"></span>
+                        <td><a href="javascript:location.href='/Blog/ArticleServlet?id=0&device='+device+'#article'"><span class="glyphicon glyphicon-film"></span>
                             &nbsp;&nbsp;文 章</a></td>
                     </tr>
                     <tr>
@@ -139,7 +138,7 @@
                                 <c:forEach var="article" items="${postListOfTag}">
                                     <li class="list-group-item">
                                         <div>
-                                            <a href="./ArticleServlet?id=${article.id}">《 ${article.title} 》</a>
+                                            <a href="javascript:location.href='./ArticleServlet?id=${article.id}&device='+device">《 ${article.title} 》</a>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </div>
                                         <div class="c_right">
@@ -169,5 +168,8 @@
     <a href="/Blog/TagsServlet?id=0">OpenIdea • Labels</a>
 </div>
 <br><br>
+
+<script src="/Blog/js/label.js"></script>
+
 </body>
 </html>

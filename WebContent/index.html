@@ -11,13 +11,12 @@
 
     window.onload = function () {
 
+
         //判断屏幕宽度大小属于手机还是laptop
-        if (window.screen.width < window.screen.height) {	//<991px
-            location.href = '/Blog/MainServlet?list=small';
-        }
-        else {
-            location.href = '/Blog/MainServlet?list=big';
-        }
+        let device = window.innerWidth < window.innerHeight ? "phone" : "laptop";
+        // if (window.screen.width < window.screen.height) {	//<991px
+
+        location.href = '/Blog/MainServlet?device=' + device;
 
     }
 
