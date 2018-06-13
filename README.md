@@ -83,7 +83,28 @@ a personal blog site based on Java/Mysql - 基于Java/Mysql的个人博客网站
 * ezmorph-1.0.3		json辅助包
 
 ### demo - 演示
->原作者的成品网站示例:
+
+![](./demo/1.png)
+![](./demo/2.png)
+![](./demo/3.png)
+![](./demo/4.png)
+![](./demo/5.png)
+![](./demo/6.png)
+![](./demo/7.png)
+![](./demo/8.png)
+![](./demo/9.png)
+![](./demo/10.png)
+![](./demo/11.png)
+![](./demo/12.png)
+
+
+
+
+
+### 原作者的成品网站示例:
 
 [www.openidea.xin](http://www.openidea.xin)
 
+---
+
+#### 2018-6-13 停止维护java版本
